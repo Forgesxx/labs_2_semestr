@@ -8,28 +8,39 @@ public class BinarySearchCycleSorter: BinarySearchSorter
         {
             return aMinIndex;
         }
-        int middle = (int)((aMaxIndex + aMinIndex)/2);
-        if( (middle == aMinIndex) || (middle == aMaxIndex) )
+        
+        int maxIndex = aMaxIndex;
+        int minIndex = aMinIndex;
+
+        do
         {
-            if (anArray[aMinIndex] >= aValue)
+            int middle = (int)((maxIndex + minIndex)/2);
+            if( (middle == minIndex) || (middle == maxIndex) )
             {
-                return aMinIndex;
+                if (anArray[minIndex] >= aValue)
+                {
+                    return minIndex;
+                }
+                
+                return maxIndex; 
+            }
+
+            if(anArray[middle] == aValue)
+            {
+                return middle;
             }
             
-            return aMaxIndex; 
+            if(anArray[middle] > aValue)
+            {
+                maxIndex = middle;
+            }
+            else
+            {
+                minIndex = middle;
+            }
+            
         }
-
-        if(anArray[middle] == aValue)
-        {
-            return middle;
-        }
-        
-        if(anArray[middle] > aValue)
-        {
-            return binarySearch(anArray, aValue, aMinIndex, middle);
-        }
-        
-        return binarySearch(anArray, aValue, middle, aMaxIndex);
+        while(true);
     }
 }
 
