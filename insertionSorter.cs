@@ -22,7 +22,7 @@ public class InsertionSorter
         return result;
     }
 
-    public int searchIndexToInsert(int[] anArray, int anIndex )
+    public virtual int searchIndexToInsert(int[] anArray, int anIndex )
     {
         int result = anIndex;
         for(int i = anIndex - 1; i >= 0; i--)
