@@ -1,14 +1,8 @@
-using static InsertionSorter;
+using static BinarySearchSorter;
 
-public class BinarySearchSorter: InsertionSorter
+public class BinarySearchCycleSorter: BinarySearchSorter
 {
-    public override int searchIndexToInsert(int[] anArray, int anIndex )
-    {
-        int result = binarySearch(anArray, anArray[anIndex], 0, anIndex); 
-        return result;
-    }
-
-    public virtual int binarySearch(int[] anArray, int aValue, int aMinIndex, int aMaxIndex)
+    public override int binarySearch(int[] anArray, int aValue, int aMinIndex, int aMaxIndex)
     {
         if(aMaxIndex == aMinIndex)
         {
@@ -38,3 +32,5 @@ public class BinarySearchSorter: InsertionSorter
         return binarySearch(anArray, aValue, middle, aMaxIndex);
     }
 }
+
+
